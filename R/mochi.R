@@ -39,7 +39,7 @@ mochi = function(health, unval_exposure, val_exposure, return_naive = FALSE) {
   varRstar <- var(Rstar) ## Var(R*) = Var(R)
   fit_ci_naive <- lm(health ~ Rstar)
   beta1star_hat <- fit_ci_naive$coefficients[2]
-  ci_premult = 2 * varR / mu_hat
+  ci_premult = 2 * varRstar / mu_hat
   ci_xstar <- ci_premult * beta1star_hat # Error-prone CI
 
   ## Moment-based: Divide naive by estimate of bias factor
