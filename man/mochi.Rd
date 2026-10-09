@@ -11,7 +11,7 @@ mochi(
   return_naive = FALSE,
   return_cc = FALSE,
   include_se = FALSE,
-  bootstraps = 0,
+  bootstraps = 1000,
   conf_level = 0.95,
   rank_ascend = TRUE
 )
@@ -19,21 +19,21 @@ mochi(
 \arguments{
 \item{outcome}{vector containing the outcome outcomes for all observations}
 
-\item{unval_exposure}{vector (of the same length as `outcome`) containing the error-prone, unvalidated exposure on which all observations will be ranked}
+\item{unval_exposure}{vector (of the same length as \code{outcome}) containing the error-prone, unvalidated exposure on which all observations will be ranked}
 
-\item{val_exposure}{vector (of the same length as `outcome`) containing the error-free, validated exposure on which all observations will be ranked. For observations that were not validated, this vector should contain `NA`.}
+\item{val_exposure}{vector (of the same length as \code{outcome}) containing the error-free, validated exposure on which all observations will be ranked. For observations that were not validated, this vector should contain \code{NA}.}
 
-\item{return_naive}{logical for whether the naive estimate (based only on `unval_exposure`) should be returned (if `TRUE`). The default is `FALSE`.}
+\item{return_naive}{logical for whether the naive estimate (based only on \code{unval_exposure}) should be returned (if \code{TRUE}). The default is \code{FALSE}.}
 
-\item{return_cc}{logical for whether the complete-case estimate (based only on those with non-missing `val_exposure`) should be returned (if `TRUE`). The default is `FALSE`.}
+\item{return_cc}{logical for whether the complete-case estimate (based only on those with non-missing \code{val_exposure}) should be returned (if \code{TRUE}). The default is \code{FALSE}.}
 
-\item{include_se}{logical for whether standard error estimate should be returned. The default is `FALSE`.}
+\item{include_se}{logical for whether standard error estimate should be returned. The default is \code{FALSE}.}
 
-\item{bootstraps}{scalar for how many bootstrap resamples should be used to estimate standard errors (if `include_se = TRUE`). For jackknife (leave-one-out) resampling, `bootstraps = 0` (the default).}
+\item{bootstraps}{scalar for how many bootstrap resamples should be used to estimate standard errors (if \code{include_se = TRUE}). For jackknife (leave-one-out) resampling, \code{bootstraps = 0} (the default).}
 
-\item{conf_level}{scalar (between 0 and 1) for confidence level of confidence intervals (if `include_se = TRUE`). The default is `0.95` for 95% confidence intervals.}
+\item{conf_level}{scalar (between 0 and 1) for confidence level of confidence intervals (if \code{include_se = TRUE}). The default is \code{0.95} for 95\% confidence intervals.}
 
-\item{rank_ascend}{logical for whether exposure is ranked in ascending or descending order. The default is `TRUE`.}
+\item{rank_ascend}{logical for whether exposure is ranked in ascending or descending order. The default is \code{TRUE}.}
 }
 \value{
 a list with the concentration index estimates requested (and standard errors, where applicable)
